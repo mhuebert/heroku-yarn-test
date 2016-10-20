@@ -1,15 +1,17 @@
 Temp app for testing Heroku yarn buildpack.
 
-To reproduce bindings error:
+I can reproduce the error via the following:
 
 ```
+git clone git@github.com:mhuebert/heroku-yarn-test.git;
+cd heroku-yarn-test;
 heroku create;
 heroku buildpacks:set https://github.com/heroku/heroku-buildpack-nodejs#yarn;
 git push heroku master; // should work 
 yarn add left-pad;
 git commit -am "add left-pad dependency";
 git push heroku master;
-heroku logs; // should show error (repeated below)
+heroku logs; // should show error
 ```
 
 The error:
